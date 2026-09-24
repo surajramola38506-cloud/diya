@@ -1,0 +1,6 @@
+{
+  "name": "Royal Birthday",
+  "description": "Ultra-premium cinematic birthday wishes experience featuring 3D cake, piano melodies, rose petals, memory timeline, and interactive surprises.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

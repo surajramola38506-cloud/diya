@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  
+  <!-- SEO & Social Meta -->
+  <title>Royal Birthday Celebration ✨ Diya</title>
+  <meta name="description" content="Ultra-premium cinematic birthday celebration experience crafted with luxury, 3D cake, romantic piano melodies, and cherished memories." />
+  <meta property="og:title" content="Royal Birthday Celebration ✨" />
+  <meta property="og:description" content="A cinematic, emotionally unforgettable celebration crafted with elegance and love." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Bundled Libraries -->
+  <script src="three.min.js"></script>
+  <script src="gsap.min.js"></script>
+  <script src="confetti.min.js"></script>
+  <script src="audio_synth.js"></script>
+</head>
+<body>
+  <!-- Ambient Background Canvases -->
+  <canvas id="starCanvas" class="canvas-bg-layer"></canvas>
+  <div class="ambient-floral-glow"></div>
+  <canvas id="petalsCanvas" class="canvas-bg-layer"></canvas>
+  <canvas id="sparkleCanvas"></canvas>
+
+  <!-- =========================================================================
+       1. CINEMATIC INTRO SCREEN (Unveiling Curtain)
+       ========================================================================= -->
+  <div id="introCurtain" class="cinematic-curtain-intro">
+    <div class="intro-filigree-frame">
+      <div class="intro-badge">Exclusive Royal Invitation</div>
+      <div style="font-size: 2.4rem;">👑</div>
+      <h1 class="intro-title">A Magical Celebration</h1>
+      <p class="intro-subtitle">Crafted Just For You, Diya</p>
+      <p class="intro-desc">
+        Step into an enchanted world of golden stardust, gentle piano melodies, 3D surprises, and memories that shine forever.
+      </p>
+      <button id="unveilBtn" class="btn-royal-unveil">
+        <span class="pulse-dot"></span>
+        <span>Enter Experience ✨</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       HEADER NAVIGATION & ACTIONS
+       ========================================================================= -->
+  <header class="royal-header">
+    <a href="#hero" class="header-brand">
+      <span class="crown-icon">👑</span>
+      <span class="brand-text">Royal Celebration</span>
+    </a>
+    <div class="header-actions">
+      <!-- Music Toggle Button -->
+      <button id="musicToggleBtn" class="btn-icon-pill" title="Toggle Soft Piano Music">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+      </button>
+
+      <!-- Shower Petals Button -->
+      <button id="showerPetalsBtn" class="btn-icon-pill" title="Shower Rose Petals">
+        <span style="font-size: 1.1rem;">🌸</span>
+      </button>
+
+      <!-- Dark / Light Theme Toggle -->
+      <button id="themeToggleBtn" class="btn-icon-pill" title="Switch Theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+      </button>
+
+      <!-- Share Button -->
+      <button id="shareBtn" class="btn-icon-pill" title="Share Birthday Wishes">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       EXPERIENCE MAIN WRAPPER
+       ========================================================================= -->
+  <main class="experience-wrapper">
+
+    <!-- 1. HERO SECTION & ANIMATED BIRTHDAY MESSAGE -->
+    <section id="hero" class="hero-section">
+      <div class="hero-aura-card">
+        <!-- Floating Butterflies -->
+        <div class="floating-butterfly-element butterfly-left">🦋</div>
+        <div class="floating-butterfly-element butterfly-right">🦋</div>
+
+        <div class="hero-birthday-tag">
+          <span>✨</span>
+          <span>A Royal Day to Celebrate</span>
+        </div>
+
+        <h2 class="hero-title">Happy Birthday</h2>
+        <div class="hero-script-name">Diya</div>
+
+        <p class="hero-poem">
+          “May your year bloom with endless laughter, boundless peace, and dreams as dazzling as the midnight stars. Today, the world celebrates the masterpiece that is you.”
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#cake" class="btn-primary-action">
+            <span>🎂 Make a Birthday Wish</span>
+          </a>
+          <a href="#letter" class="btn-secondary-action">
+            <span>💌 Read Surprise Letter</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 3D BIRTHDAY CAKE & BLOW CANDLE INTERACTION -->
+    <section id="cake" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Interactive 3D Centerpiece</span>
+        <h3 class="section-heading gold">The Royal Birthday Cake</h3>
+        <p class="section-subtext">Rotate in 360°, close your eyes, and blow the glowing candles to make a wish!</p>
+      </div>
+
+      <div class="cake-interactive-card">
+        <div class="cake-viewport-container" id="cakeViewport">
+          <span class="cake-drag-hint">👆 Drag to rotate cake</span>
+        </div>
+
+        <div class="blow-controls-panel">
+          <button id="blowCandleBtn" class="btn-blow-candle">
+            <span>💨 Blow the Candles</span>
+          </button>
+
+          <div class="mic-blow-status">
+            <button id="micBlowToggle" style="background: none; border: none; color: var(--text-gold); cursor: pointer; text-decoration: underline; font-size: 0.82rem;">
+              🎤 Enable Microphone to Blow!
+            </button>
+            <span id="micStatusText"></span>
+          </div>
+
+          <div id="wishUnlockedBanner" class="wish-unlocked-banner" style="display: none;">
+            <h4>✨ Your Wish Has Been Carried to the Stars!</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              May every happiness, success, and beautiful surprise you have ever hoped for find its way to you this year! 🎉
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. VOICE MESSAGE PLAYER -->
+    <section id="voice" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Emotional Audio Note</span>
+        <h3 class="section-heading">Voice of the Heart</h3>
+        <p class="section-subtext">A warm heartfelt birthday recording made especially for you.</p>
+      </div>
+
+      <div class="voice-message-card">
+        <div class="voice-card-top">
+          <div class="voice-sender-info">
+            <div class="sender-avatar">👑</div>
+            <div class="sender-meta">
+              <h4>Special Voice Note</h4>
+              <p>Duration • 0:48 • Acoustic Piano Master</p>
+            </div>
+          </div>
+          <span style="font-size: 1.3rem;">🎵</span>
+        </div>
+
+        <div class="voice-player-interface">
+          <button id="playVoiceBtn" class="btn-play-voice" title="Play Voice Note">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+          <div class="waveform-canvas-wrapper">
+            <canvas id="voiceWaveCanvas"></canvas>
+          </div>
+          <span class="voice-duration">0:48</span>
+        </div>
+
+        <p class="voice-transcript">
+          “Hey Diya... Just wanted to remind you how deeply treasured you are. Keep smiling that bright, beautiful smile of yours, and never stop being your authentic, wonderful self. Happy Birthday!”
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. MEMORY TIMELINE -->
+    <section id="timeline" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Chapters of Friendship & Smiles</span>
+        <h3 class="section-heading gold">Cherished Memory Timeline</h3>
+        <p class="section-subtext">Every memory with you is a treasure etched in gold. Tap any card to release love from the heart!</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-spine"></div>
+
+        <!-- Timeline 1 -->
+        <div class="timeline-entry">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-card" title="Tap to release heart burst">
+            <div class="timeline-date">Chapter 01 • The Beginning</div>
+            <h4 class="timeline-title">The First Hello</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              When paths crossed and a simple conversation turned into endless laughter, heartfelt talks, and an unbreakable bond of friendship.
+            </p>
+            <div class="timeline-card-badge-tap"><span>💖 Tap for Heart Burst</span></div>
+          </div>
+        </div>
+
+        <!-- Timeline 2 (Iconic Chat Banter) -->
+        <div class="timeline-entry">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-card" title="Tap to release heart burst">
+            <div class="timeline-date">Chapter 02 • The Classic Banters</div>
+            <h4 class="timeline-title">“Milna Hai Mujhe Tere Se” 🙈</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              That timeless banter that always makes everyone smile:
+            </p>
+            <div class="timeline-chat-preview">
+              <div class="chat-bubble-user">“Milna hai mujhe tere se ❤️”</div>
+              <div class="chat-bubble-reply">“Axa... Jute tho ne marne muje 😂”</div>
+              <div class="chat-bubble-user">“Na.. A to sahi! Tere swal hi ni hote khtm 🙈”</div>
+              <div class="chat-bubble-user">“Jis din ayega pta ni kaisa interview leta mera...”</div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-gold);">
+              ✨ Some conversations are pure gold and forever cherished.
+            </p>
+            <div class="timeline-card-badge-tap"><span>💖 Tap for Heart Burst</span></div>
+          </div>
+        </div>
+
+        <!-- Timeline 3 -->
+        <div class="timeline-entry">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-card" title="Tap to release heart burst">
+            <div class="timeline-date">Chapter 03 • School & College Vibrancy</div>
+            <h4 class="timeline-title">The Radiant School Uniform Days</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Maroon kurta, white dupatta, that gentle red bindi, and the sweetest smile that could brighten up the gloomiest corridor.
+            </p>
+            <div class="timeline-card-badge-tap"><span>💖 Tap for Heart Burst</span></div>
+          </div>
+        </div>
+
+        <!-- Timeline 4 -->
+        <div class="timeline-entry">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-card" title="Tap to release heart burst">
+            <div class="timeline-date">Chapter 04 • Attitude & Humor</div>
+            <h4 class="timeline-title">Cool Vibes & Black Sunglasses</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Cool sunglasses on, rock/call-me pose, and that effortless swag that nobody else can pull off quite like you!
+            </p>
+            <div class="timeline-card-badge-tap"><span>💖 Tap for Heart Burst</span></div>
+          </div>
+        </div>
+
+        <!-- Timeline 5 -->
+        <div class="timeline-entry">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-card" title="Tap to release heart burst">
+            <div class="timeline-date">Chapter 05 • The Future</div>
+            <h4 class="timeline-title">To A Million More Adventures</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Here is to celebrating today, conquering tomorrow, and walking into another year of greatness, blessings, and laughter!
+            </p>
+            <div class="timeline-card-badge-tap"><span>💖 Tap for Heart Burst</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PHOTO GALLERY -->
+    <section id="gallery" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Visual Moments</span>
+        <h3 class="section-heading gold">Moments Captured In Time</h3>
+        <p class="section-subtext">Tap any card to zoom, or add your favorite memories directly!</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Card 1: School Uniform Radiant Smile -->
+        <div class="gallery-card">
+          <img src="images/chat_memory.png" alt="Late Night Banter" class="gallery-card-img" />
+          <div class="gallery-overlay">
+            <h4 class="gallery-caption-title">The Unending Banters</h4>
+            <p class="gallery-caption-sub">“Milna hai mujhe tere se... ❤️”</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Floral Background with Crown -->
+        <div class="gallery-card">
+          <img src="images/flower_bg.jpg" alt="Enchanted Blossoms" class="gallery-card-img" />
+          <div class="gallery-overlay">
+            <h4 class="gallery-caption-title">Royalty & Grace</h4>
+            <p class="gallery-caption-sub">A crown of blossoms for the Birthday Queen 👑</p>
+          </div>
+        </div>
+
+        <!-- Upload Slot -->
+        <div class="btn-upload-photo-slot" id="uploadPhotoSlot">
+          <span style="font-size: 2.2rem;">📸</span>
+          <h4 style="font-size: 1.1rem; font-weight: 600;">+ Add Your Photo</h4>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; padding: 0 16px;">
+            Tap here to upload a photo directly from your device!
+          </p>
+          <input type="file" id="customPhotoInput" accept="image/*" style="display: none;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 3D ENVELOPE OPENING & SURPRISE LETTER -->
+    <section id="letter" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">A Personal Confession of Wishes</span>
+        <h3 class="section-heading gold">The Wax-Sealed Letter</h3>
+        <p class="section-subtext">Break the golden wax seal to unfold a private, handwritten parchment note.</p>
+      </div>
+
+      <div class="letter-section-container">
+        <div class="envelope-wrapper" id="waxEnvelope">
+          <div class="envelope-base"></div>
+          <div class="envelope-flap"></div>
+          <div class="wax-seal-btn" title="Tap to open the letter">D</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. AI BIRTHDAY ASSISTANT / WISH GENIE -->
+    <section id="aiMuse" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Instant Poetic Inspiration</span>
+        <h3 class="section-heading gold">The Royal Wish Muse</h3>
+        <p class="section-subtext">Pick a mood and let our AI Wish Muse compose a customized, poetic birthday verse!</p>
+      </div>
+
+      <div class="ai-assistant-card">
+        <div style="font-size: 0.88rem; color: var(--text-secondary);">Select Desired Emotion / Tone:</div>
+        <div class="ai-chips-group">
+          <button class="ai-tone-chip active" data-tone="romantic">🌹 Romantic & Tender</button>
+          <button class="ai-tone-chip" data-tone="emotional">💖 Emotional & Heartfelt</button>
+          <button class="ai-tone-chip" data-tone="playful">😂 Playful & Witty</button>
+          <button class="ai-tone-chip" data-tone="shayari">✨ Poetic Shayari</button>
+        </div>
+
+        <button id="generateAiWishBtn" class="btn-primary-action" style="width: 100%; justify-content: center;">
+          <span>✨ Craft Bespoke Birthday Verse</span>
+        </button>
+
+        <div class="ai-result-box" id="aiResultText">
+          “To the girl who carries sunshine in her smile and poetry in her eyes: May your birthday be as timeless, radiant, and enchanting as you are to my heart. ✨❤️”
+        </div>
+
+        <div class="ai-result-actions">
+          <button id="copyWishBtn" class="btn-secondary-action" style="padding: 8px 18px; font-size: 0.85rem;">
+            📋 Copy Wish
+          </button>
+          <button id="pinAiWishBtn" class="btn-primary-action" style="padding: 8px 18px; font-size: 0.85rem;">
+            📌 Pin to Wishes Wall
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GUEST WISHES WALL -->
+    <section id="wishes" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Warm Hearts & Blessings</span>
+        <h3 class="section-heading gold">Celebration Wishes Wall</h3>
+        <p class="section-subtext">Leave your personalized greeting, blessings, and shower Diya with love!</p>
+      </div>
+
+      <!-- Add Wish Form -->
+      <form id="addWishForm" style="width: 100%; max-width: 680px; margin-bottom: 32px; background: var(--bg-glass); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <input type="text" id="guestAuthor" placeholder="Your Name / Nickname" style="flex: 1; min-width: 180px; padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass); background: rgba(0,0,0,0.3); color: #fff; font-family: inherit; font-size: 0.9rem;" required />
+          <select id="guestTag" style="padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass); background: rgba(20,8,26,0.9); color: var(--text-gold); font-family: inherit; font-size: 0.9rem;">
+            <option value="🌸 Queen">🌸 Queen</option>
+            <option value="💖 Endless Love">💖 Endless Love</option>
+            <option value="✨ Magic">✨ Magic</option>
+            <option value="🎂 Best Friend">🎂 Best Friend</option>
+            <option value="🎉 Party Time">🎉 Party Time</option>
+          </select>
+        </div>
+        <textarea id="guestText" rows="3" placeholder="Write your heartfelt birthday wishes..." style="width: 100%; padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass); background: rgba(0,0,0,0.3); color: #fff; font-family: inherit; font-size: 0.9rem; resize: vertical;" required></textarea>
+        <button type="submit" class="btn-primary-action" style="align-self: flex-end; padding: 10px 24px;">
+          <span>💌 Post Birthday Wish</span>
+        </button>
+      </form>
+
+      <!-- Wishes Masonry Grid -->
+      <div class="wishes-masonry" id="wishesGrid">
+        <div class="wish-card">
+          <div class="wish-card-header">
+            <span class="wish-author">Suraj</span>
+            <span class="wish-tag-badge">💖 Endless Love</span>
+          </div>
+          <p class="wish-card-text">
+            “Happy Birthday Diya! You bring light and warmth wherever you go. Keep shining, stay happy, and never change your contagious smile! ✨👑”
+          </p>
+          <div class="wish-card-footer">
+            <button class="btn-like-wish liked" onclick="this.classList.toggle('liked'); window.royalAudio?.playSparkle();">
+              <span>❤️</span> <span class="like-count">12</span>
+            </button>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">Pinned</span>
+          </div>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-card-header">
+            <span class="wish-author">Bestie Squad</span>
+            <span class="wish-tag-badge">🌸 Queen</span>
+          </div>
+          <p class="wish-card-text">
+            “To the coolest girl with the best sense of humor and sweetest heart! May this year give you all the happiness you deserve and more! 🥳🎂”
+          </p>
+          <div class="wish-card-footer">
+            <button class="btn-like-wish" onclick="this.classList.toggle('liked'); window.royalAudio?.playSparkle();">
+              <span>❤️</span> <span class="like-count">8</span>
+            </button>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">2 hours ago</span>
+          </div>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-card-header">
+            <span class="wish-author">Secret Well-Wisher</span>
+            <span class="wish-tag-badge">✨ Magic</span>
+          </div>
+          <p class="wish-card-text">
+            “May your life be as radiant as your spirit and as sweet as your heart. Happy Birthday, lovely soul!”
+          </p>
+          <div class="wish-card-footer">
+            <button class="btn-like-wish" onclick="this.classList.toggle('liked'); window.royalAudio?.playSparkle();">
+              <span>❤️</span> <span class="like-count">5</span>
+            </button>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">Today</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       SURPRISE PARCHMENT LETTER MODAL (Opened from Envelope)
+       ========================================================================= -->
+  <div id="parchmentModal" class="parchment-letter-modal">
+    <div class="parchment-paper">
+      <button id="closeLetterBtn" class="btn-close-letter" title="Close Letter">✕</button>
+      <div class="letter-header-crest">👑</div>
+      <h3 class="letter-greeting">Dearest Diya,</h3>
+      <div class="letter-body">
+Some people arrive in our lives and quietly make the world feel brighter, softer, and so much more joyful. You are undoubtedly one of those rare, radiant souls.
+
+From your innocent laughter in school uniform to your iconic pose with sunglasses, and those unforgettable, sweet conversations where you say:
+“Milna hai mujhe tere se... Tere swal hi ni hote khtm!”
+
+Every single memory is a treasure that makes my heart smile.
+
+On this special birthday, my sincerest prayer is that you are blessed with boundless peace, untamed success, everlasting good health, and a happiness that never fades away.
+
+Never lose that pure heart, that playful spark, and that beautiful smile that makes the world a thousand times better.
+
+Have the most magical birthday of your life!
+      </div>
+      <div class="letter-signature">
+        With all my love & blessings,<br />
+        Forever Yours ✨
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FLOATING NAVIGATION DOCK
+       ========================================================================= -->
+  <nav class="floating-nav-dock">
+    <a href="#hero" class="dock-item active">
+      <span class="icon">✨</span>
+      <span>Home</span>
+    </a>
+    <a href="#cake" class="dock-item">
+      <span class="icon">🎂</span>
+      <span>Cake</span>
+    </a>
+    <a href="#timeline" class="dock-item">
+      <span class="icon">⏳</span>
+      <span>Story</span>
+    </a>
+    <a href="#gallery" class="dock-item">
+      <span class="icon">🖼️</span>
+      <span>Photos</span>
+    </a>
+    <a href="#letter" class="dock-item">
+      <span class="icon">💌</span>
+      <span>Letter</span>
+    </a>
+    <a href="#wishes" class="dock-item">
+      <span class="icon">💖</span>
+      <span>Wishes</span>
+    </a>
+  </nav>
+
+  <!-- Script Initialization -->
+  <script src="app.js"></script>
+</body>
+</html>

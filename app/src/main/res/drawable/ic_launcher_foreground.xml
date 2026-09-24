@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Candle Flame Glow -->
+    <path
+        android:pathData="M54,26 C57,32 58,35 56,38 C54,41 51,40 50,38 C49,35 50,31 54,26 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="50"
+                android:startY="26"
+                android:endX="56"
+                android:endY="40"
+                android:type="linear">
+                <item android:color="#FFF9C4" android:offset="0.0" />
+                <item android:color="#FFD700" android:offset="0.4" />
+                <item android:color="#FF6F00" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Candle Body -->
+    <path
+        android:pathData="M52,39 L56,39 L56,50 L52,50 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="52"
+                android:startY="39"
+                android:endX="56"
+                android:endY="50"
+                android:type="linear">
+                <item android:color="#FFF2D6" android:offset="0.0" />
+                <item android:color="#FFCC80" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Cake Top Tier -->
+    <path
+        android:pathData="M42,50 L66,50 C68,50 69,51 69,53 L69,63 C69,65 67,66 65,66 L43,66 C41,66 39,65 39,63 L39,53 C39,51 40,50 42,50 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="39"
+                android:startY="50"
+                android:endX="69"
+                android:endY="66"
+                android:type="linear">
+                <item android:color="#F8BBD0" android:offset="0.0" />
+                <item android:color="#E91E63" android:offset="0.7" />
+                <item android:color="#C2185B" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Cake Frosting Drips -->
+    <path
+        android:pathData="M39,55 Q45,60 50,55 Q56,61 62,55 Q66,59 69,55 L69,50 L39,50 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Cake Base Tier -->
+    <path
+        android:pathData="M31,66 L77,66 C79,66 81,68 81,70 L81,80 C81,82 79,84 77,84 L31,84 C29,84 27,82 27,80 L27,70 C27,68 29,66 31,66 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="27"
+                android:startY="66"
+                android:endX="81"
+                android:endY="84"
+                android:type="linear">
+                <item android:color="#FFD54F" android:offset="0.0" />
+                <item android:color="#FFA000" android:offset="0.6" />
+                <item android:color="#E65100" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Golden Plate / Base Stand -->
+    <path
+        android:pathData="M23,83 L85,83 C86,83 87,84 87,85 C87,86 86,87 85,87 L23,87 C22,87 21,86 21,85 C21,84 22,83 23,83 Z"
+        android:fillColor="#FFE082" />
+
+    <!-- Sparkle Stars -->
+    <path
+        android:pathData="M35,34 L36,37 L39,38 L36,39 L35,42 L34,39 L31,38 L34,37 Z"
+        android:fillColor="#FFF59D" />
+    <path
+        android:pathData="M73,36 L74,38 L76,39 L74,40 L73,42 L72,40 L70,39 L72,38 Z"
+        android:fillColor="#FFF59D" />
+    <path
+        android:pathData="M66,24 L67,26 L69,27 L67,28 L66,30 L65,28 L63,27 L65,26 Z"
+        android:fillColor="#FFF9C4" />
+</vector>
